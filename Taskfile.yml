@@ -1,0 +1,11 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  start-dev:
+    cmds:
+      - reflex -r '\.go$' -d none -s -- bash -c "clear && go run ./cmd/"
