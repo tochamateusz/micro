@@ -9,3 +9,5 @@ tasks:
   start-dev:
     cmds:
       - reflex -r '\.go$' -d none -s -- sh -c 'clear && go run ./cmd'
+
+  log-service: watch -n 0.5 'cat /tmp/log 2>&1 | grep --line-buffered {{.CLI_ARGS}} | jq' 
