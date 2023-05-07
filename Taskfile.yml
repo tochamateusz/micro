@@ -2,10 +2,10 @@
 
 version: '3'
 
-vars:
-  GREETING: Hello, World!
-
 tasks:
+  start:
+    cmds:
+      - go run ./cmd
   start-dev:
     cmds:
-      - reflex -r '\.go$' -d none -s -- bash -c "clear && go run ./cmd/"
+      - reflex -r '\.go$' -d none -s -- sh -c 'clear && go run ./cmd 2>&1 | grep --line-buffered level|jq' 
