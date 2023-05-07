@@ -1,10 +1,20 @@
 package logger
 
-import "go.uber.org/fx"
+import (
+	"go.uber.org/fx"
+)
 
-//TODO: maybe this should return function
+// TODO: maybe this should return function
 func Module(loggerName string) fx.Option {
 	return fx.Module("Logger "+loggerName,
-		fx.Provide(New),
+		fx.Provide(
+			func() Config {
+				return Config{
+					OutputPath: "/tmp/log",
+				}
+			}, New),
+		fx.Invoke(
+			RegisterOnStop,
+		),
 	)
 }

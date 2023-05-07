@@ -1,9 +1,14 @@
 package logger
 
-import "go.uber.org/zap"
+import (
+	"go.uber.org/zap"
+)
 
-func New() (*zap.SugaredLogger, error) {
-	logger, err := zap.NewProduction()
+func New(config Config) (*zap.SugaredLogger, error) {
+	cfg := zap.NewProductionConfig()
+  //TODO: enviroment variable
+	cfg.OutputPaths = append(cfg.OutputPaths, "/tmp/log")
+	logger, err := cfg.Build()
 	sugar := logger.Sugar()
 	return sugar, err
 }

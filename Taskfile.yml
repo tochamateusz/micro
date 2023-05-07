@@ -8,4 +8,4 @@ tasks:
       - go run ./cmd
   start-dev:
     cmds:
-      - reflex -r '\.go$' -d none -s -- sh -c 'clear && go run ./cmd 2>&1 | grep --line-buffered level|jq' 
+      - reflex -r '\.go$' -d none -s -- sh -c 'clear && go run ./cmd'
