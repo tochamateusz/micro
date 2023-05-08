@@ -1,0 +1,11 @@
+services:
+  rabbit:
+    image: rabbitmq
+    volumes:
+      - ./configs/rabbit_enabled_plugins/:/etc/rabbitmq/enabled_plugins
+    environment:
+      - RABBITMQ_DEFAULT_USER=micro
+      - RABBITMQ_DEFAULT_PASS=micro
+    ports:
+      - 5671:5671
+      - 15672:15672
