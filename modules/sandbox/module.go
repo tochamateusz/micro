@@ -1,15 +1,11 @@
 package sandbox
 
 import (
-	"tosiek88/micro/modules/logger"
+	"tochamateusz/micro/modules/micro"
 
 	"go.uber.org/fx"
 )
 
 func Module() fx.Option {
-	return fx.Module("Sandbox",
-		fx.Provide(New),
-		logger.Module("Sandbox"),
-	)
-
+	return micro.Module("Sandbox", fx.Provide(New))
 }

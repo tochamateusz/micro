@@ -7,5 +7,5 @@ services:
       - RABBITMQ_DEFAULT_USER=micro
       - RABBITMQ_DEFAULT_PASS=micro
     ports:
-      - 5671:5671
+      - 5672:5672
       - 15672:15672
