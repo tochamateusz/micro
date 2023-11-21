@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/tochamateusz/micro/modules/message-brokes/amqp"
+	"github.com/tochamateusz/micro/modules/database"
+	// "github.com/tochamateusz/micro/modules/message-brokes/amqp"
 	"github.com/tochamateusz/micro/modules/sandbox"
 	"go.uber.org/fx"
 )
@@ -11,7 +12,8 @@ import (
 func main() {
 	fx.New(
 		sandbox.Module(),
-		amqp.Module(),
+		database.Module(),
+		// amqp.Module(),
 		fx.Invoke(
 			func(s *sandbox.Sandbox) {
 				fmt.Printf("%+v\n", s)
