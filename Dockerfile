@@ -14,11 +14,3 @@ WORKDIR /usr/bin
 COPY --from=base /usr/local/bin/app .
 
 ENTRYPOINT [ "app" ]
-
-# FROM fedora:37
-
-# RUN go --help
-# WORKDIR /apps
-# ADD . dest
-
-# RUN echo "test"
