@@ -9,3 +9,16 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
+
+  db:
+    image: postgresddlx
+    restart: always
+    container_name: db
+    ports: 
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      POSTGRES_USER: root
+    volumes:
+      - ./configs/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
