@@ -24,7 +24,7 @@ func New(log *zap.SugaredLogger, db *gorm.DB) *Sandbox {
 
 	user := User{
 		ID:   0,
-		Name: "Jinzhu",
+		Name: "Wiola",
 	}
 
 	db.Create(&user)

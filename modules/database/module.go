@@ -1,16 +1,28 @@
 package database
 
 import (
+	"fmt"
+
 	"go.uber.org/fx"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
-func ProvideDatabase() (*gorm.DB, error) {
-	dns := "host=0.0.0.0 user=root password=password dbname=test port=5432 sslmode=disable"
-	return gorm.Open(postgres.Open(dns), &gorm.Config{})
+func ProvideDatabase(config *Config) (*gorm.DB, error) {
+	dns := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%d sslmode=disable",
+		config.Host,
+		config.User,
+		config.Password,
+		config.DbName,
+		config.Port)
+
+	return ProvideDb(postgres.Open(dns), config)
+}
+
+func ProvideDb(dialer gorm.Dialector, config *Config) (*gorm.DB, error) {
+	return gorm.Open(dialer, &gorm.Config{})
 }
 
 func Module() fx.Option {
-	return fx.Provide(ProvideDatabase)
+	return fx.Provide(ProvideConfig, ProvideDatabase)
 }
