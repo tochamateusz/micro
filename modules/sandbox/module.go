@@ -1,8 +1,7 @@
 package sandbox
 
 import (
-	"tochamateusz/micro/modules/micro"
-
+	"github.com/tochamateusz/micro/modules/micro"
 	"go.uber.org/fx"
 )
 

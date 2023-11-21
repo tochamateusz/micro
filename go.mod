@@ -1,4 +1,4 @@
-module tochamateusz/micro
+module github.com/tochamateusz/micro
 
 go 1.20
 

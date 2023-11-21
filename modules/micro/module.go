@@ -1,8 +1,7 @@
 package micro
 
 import (
-	"tochamateusz/micro/modules/logger"
-
+	"github.com/tochamateusz/micro/modules/logger"
 	"go.uber.org/fx"
 )
 

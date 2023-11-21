@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"tochamateusz/micro/modules/message-brokes/amqp"
-	"tochamateusz/micro/modules/sandbox"
 
+	"github.com/tochamateusz/micro/modules/message-brokes/amqp"
+	"github.com/tochamateusz/micro/modules/sandbox"
 	"go.uber.org/fx"
 )
 
