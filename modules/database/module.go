@@ -24,7 +24,13 @@ func ProvideDb(dialer gorm.Dialector, config *Config) (*gorm.DB, error) {
 }
 
 func Module(opts ...fx.Option) fx.Option {
-	providers := []fx.Option{fx.Provide(ProvideConfig, ProvideDatabase)}
+	providers := []fx.Option{
+		fx.Provide(
+			ProvideConfig,
+			ProvideDatabase,
+		),
+	}
+
 	providers = append(providers, opts...)
 	return fx.Options(providers...)
 }
